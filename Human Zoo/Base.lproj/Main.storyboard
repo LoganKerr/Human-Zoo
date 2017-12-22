@@ -13,39 +13,62 @@
         <!--Page View Controller-->
         <scene sceneID="2bx-hC-cPk">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="s3P-hl-9W1" customClass="PageViewController" customModule="Human_Zoo" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="s3P-hl-9W1" customClass="PageViewController" customModule="Human_Zoo" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="HfD-Sb-hxJ"/>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMd-QD-vbH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="33" y="-604"/>
+            <point key="canvasLocation" x="-300" y="-613.04347826086962"/>
         </scene>
-        <!--Game View Controller-->
+        <!--View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController storyboardIdentifier="sbRed" id="BV1-FR-VrT" customClass="GameViewController" customModule="Human_Zoo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
+                <viewController storyboardIdentifier="sbRed" id="BV1-FR-VrT" customClass="ViewController" customModule="Human_Zoo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="viewController">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pen1Screen" translatesAutoresizingMaskIntoConstraints="NO" id="ya4-ic-KOV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1308" y="-636.4317841079461"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="fw0-hw-Ysm">
             <objects>
-                <viewController storyboardIdentifier="sbBlue" id="MHY-3a-O4x" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sbBlue" id="MHY-3a-O4x" customClass="ViewController" customModule="Human_Zoo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jvx-rU-wGO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homePage" translatesAutoresizingMaskIntoConstraints="NO" id="FM8-6C-AMv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="FM8-6C-AMv" firstAttribute="leading" secondItem="OFf-nD-ZBi" secondAttribute="leading" id="M8M-IV-jsD"/>
+                            <constraint firstItem="OFf-nD-ZBi" firstAttribute="trailing" secondItem="FM8-6C-AMv" secondAttribute="trailing" id="n2L-tj-rGB"/>
+                            <constraint firstItem="FM8-6C-AMv" firstAttribute="top" secondItem="jvx-rU-wGO" secondAttribute="top" id="ofX-o6-Guc"/>
+                            <constraint firstItem="OFf-nD-ZBi" firstAttribute="bottom" secondItem="FM8-6C-AMv" secondAttribute="bottom" id="tsT-YW-nQ3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="OFf-nD-ZBi"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="34e-zF-PlK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="860" y="118"/>
+            <point key="canvasLocation" x="520.79999999999995" y="-636.4317841079461"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="homePage" width="1125" height="2001"/>
+        <image name="pen1Screen" width="1125" height="2001"/>
+    </resources>
 </document>
