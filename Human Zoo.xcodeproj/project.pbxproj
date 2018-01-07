@@ -17,6 +17,7 @@
 		02A95E972001CDD100FB6FB2 /* upheavtt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02A95E962001CC0200FB6FB2 /* upheavtt.ttf */; };
 		02A95E992001D84D00FB6FB2 /* overlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A95E982001D84D00FB6FB2 /* overlayViewController.swift */; };
 		02A95E9B2001E0E500FB6FB2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A95E9A2001E0E500FB6FB2 /* Constants.swift */; };
+		02A95E9D2001EA6500FB6FB2 /* Human.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A95E9C2001EA6500FB6FB2 /* Human.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		02A95E962001CC0200FB6FB2 /* upheavtt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = upheavtt.ttf; path = ../../../../Downloads/upheaval/upheavtt.ttf; sourceTree = "<group>"; };
 		02A95E982001D84D00FB6FB2 /* overlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = overlayViewController.swift; sourceTree = "<group>"; };
 		02A95E9A2001E0E500FB6FB2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		02A95E9C2001EA6500FB6FB2 /* Human.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Human.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				02A95E9A2001E0E500FB6FB2 /* Constants.swift */,
 				02A95E982001D84D00FB6FB2 /* overlayViewController.swift */,
 				02A95E7D20017AD100FB6FB2 /* penViewController.swift */,
+				02A95E9C2001EA6500FB6FB2 /* Human.swift */,
 				0249E8D41FECA486007B09D8 /* Main.storyboard */,
 				0249E8D71FECA486007B09D8 /* Assets.xcassets */,
 				0249E8D91FECA486007B09D8 /* LaunchScreen.storyboard */,
@@ -181,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02A95E7E20017AD100FB6FB2 /* penViewController.swift in Sources */,
+				02A95E9D2001EA6500FB6FB2 /* Human.swift in Sources */,
 				0249E8E51FECAC68007B09D8 /* ViewController.swift in Sources */,
 				0249E8CB1FECA486007B09D8 /* AppDelegate.swift in Sources */,
 				02A95E992001D84D00FB6FB2 /* overlayViewController.swift in Sources */,

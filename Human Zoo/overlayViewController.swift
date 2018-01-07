@@ -28,33 +28,12 @@ class overlayViewController: UIViewController {
         }
     }
     
-    func setHumanCounterLabel()
-    {
-        print(self.view)
-        /*
-        // for each view in view controller
-        for view in self.view.subviews
-        {
-            // if casting to label works
-            if let labelView = view as? UILabel
-            {
-                // if restoration id matches
-                if (labelView.accessibilityLabel == "humanCounter")
-                {
-                    // sets updated human total count
-                    humanCounter = labelView
-                }
-            }
-        }
- */
-    }
-    
     func getTotalHumans() -> Int
     {
         var total: Int = 0
-        for type in HUMANS_LIST
+        for human in HUMANS_LIST
         {
-            total = (total + UserDefaults.standard.integer(forKey: type) as? Int)!
+            total = (total + UserDefaults.standard.integer(forKey: human.getName()) as? Int)!
         }
         return total
     }

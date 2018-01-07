@@ -8,4 +8,8 @@
 
 import Foundation
 
-let HUMANS_LIST: Array! = ["farmer", "teacher", "cashier"]
+let HUMANS_LIST: Array! = [
+    Human(n: "farmer", v: 1),
+    Human(n: "teacher", v: 1),
+    Human(n: "cashier", v: 1)
+]
