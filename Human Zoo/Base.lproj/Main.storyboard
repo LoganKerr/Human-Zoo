@@ -1,74 +1,309 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="s3P-hl-9W1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="upheavtt.ttf">
+            <string>UpheavalTT-BRK-</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--Page View Controller-->
-        <scene sceneID="2bx-hC-cPk">
+        <!--Overlay View Controller-->
+        <scene sceneID="tne-QT-ifu">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="s3P-hl-9W1" customClass="PageViewController" customModule="Human_Zoo" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="HfD-Sb-hxJ"/>
-                </pageViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gMd-QD-vbH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-300" y="-613.04347826086962"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="tXr-a1-R10">
-            <objects>
-                <viewController storyboardIdentifier="sbRed" id="BV1-FR-VrT" customClass="ViewController" customModule="Human_Zoo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="viewController">
+                <viewController storyboardIdentifier="pageViewOverlay" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="overlayViewController" customModule="Human_Zoo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pen1Screen" translatesAutoresizingMaskIntoConstraints="NO" id="ya4-ic-KOV">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hangerScreen" translatesAutoresizingMaskIntoConstraints="NO" id="H2Z-Hp-GA1">
+                                <rect key="frame" x="0.0" y="20" width="375" height="650"/>
+                            </imageView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ek-L8-yJO">
+                                <rect key="frame" x="0.0" y="20" width="375" height="601"/>
+                                <connections>
+                                    <segue destination="n2R-xo-Ncc" kind="embed" id="QCZ-Fk-l91"/>
+                                </connections>
+                            </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 Humans" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RtB-yz-nOB">
+                                <rect key="frame" x="4" y="24" width="101" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <color key="backgroundColor" white="0.60544084821428568" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" label="humanCounter"/>
+                                <fontDescription key="fontDescription" name="UpheavalTT-BRK-" family="Upheaval TT (BRK)" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2ek-L8-yJO" secondAttribute="bottom" constant="46" id="8tq-BU-R7r"/>
+                            <constraint firstItem="2ek-L8-yJO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Qw9-I6-dpi"/>
+                            <constraint firstItem="2ek-L8-yJO" firstAttribute="top" secondItem="H2Z-Hp-GA1" secondAttribute="top" id="UYq-zb-lcX"/>
+                            <constraint firstItem="H2Z-Hp-GA1" firstAttribute="leading" secondItem="2ek-L8-yJO" secondAttribute="leading" id="XNZ-lc-cA9"/>
+                            <constraint firstAttribute="trailing" secondItem="2ek-L8-yJO" secondAttribute="trailing" id="cf8-md-Mkh"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="H2Z-Hp-GA1" secondAttribute="bottom" constant="-3" id="cgB-if-VMT"/>
+                            <constraint firstItem="H2Z-Hp-GA1" firstAttribute="trailing" secondItem="2ek-L8-yJO" secondAttribute="trailing" id="dpm-UL-Y8y"/>
+                            <constraint firstItem="2ek-L8-yJO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jjO-2D-9Ih"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="humanCounter" destination="RtB-yz-nOB" id="kQe-ca-JTH"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1308" y="-636.4317841079461"/>
+            <point key="canvasLocation" x="13.6" y="104.7976011994003"/>
+        </scene>
+        <!--My Page View Controller-->
+        <scene sceneID="Cq4-Sd-vE4">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="n2R-xo-Ncc" customClass="MyPageViewController" customModule="Human_Zoo" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HZS-dL-Srx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="823" y="105"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="fw0-hw-Ysm">
+        <scene sceneID="7ZQ-s8-OAC">
             <objects>
-                <viewController storyboardIdentifier="sbBlue" id="MHY-3a-O4x" customClass="ViewController" customModule="Human_Zoo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jvx-rU-wGO">
+                <viewController storyboardIdentifier="hangarPage" id="iQn-Bb-TLw" customClass="ViewController" customModule="Human_Zoo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p9b-IZ-VoJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homePage" translatesAutoresizingMaskIntoConstraints="NO" id="FM8-6C-AMv">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hangerScreenEdited" translatesAutoresizingMaskIntoConstraints="NO" id="56r-QM-UpO">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DzF-dD-KwB">
+                                <rect key="frame" x="154" y="570" width="187" height="91"/>
+                                <state key="normal" image="rescueButton"/>
+                                <connections>
+                                    <action selector="rescueRandomAnimal:" destination="iQn-Bb-TLw" eventType="touchUpInside" id="ZiE-08-91Z"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to Human Zoo!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYT-xd-z0Q">
+                                <rect key="frame" x="16" y="20" width="325" height="136"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.60884865426106649" green="1" blue="0.51637816703803407" alpha="0.6538842429577465" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="56r-QM-UpO" firstAttribute="leading" secondItem="p9b-IZ-VoJ" secondAttribute="leading" id="4QK-mF-njD"/>
+                            <constraint firstItem="56r-QM-UpO" firstAttribute="top" secondItem="p9b-IZ-VoJ" secondAttribute="top" id="6xs-cR-LHp"/>
+                            <constraint firstItem="oIr-mZ-3Mk" firstAttribute="bottom" secondItem="56r-QM-UpO" secondAttribute="bottom" id="cEa-gR-LvD"/>
+                            <constraint firstItem="oIr-mZ-3Mk" firstAttribute="trailing" secondItem="56r-QM-UpO" secondAttribute="trailing" id="fSN-aq-KuL"/>
+                            <constraint firstItem="oIr-mZ-3Mk" firstAttribute="bottom" secondItem="DzF-dD-KwB" secondAttribute="bottom" constant="6" id="rk4-7u-X3O"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oIr-mZ-3Mk"/>
+                    </view>
+                    <connections>
+                        <outlet property="rescueMessage" destination="xYT-xd-z0Q" id="zyL-8v-kMG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZxK-c7-Vyo" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1018.4" y="-18.440779610194905"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mga-Pu-kBu">
+            <objects>
+                <viewController storyboardIdentifier="homePage" id="XO5-Wm-bhC" customClass="ViewController" customModule="Human_Zoo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iuh-RB-Aga">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homePage" translatesAutoresizingMaskIntoConstraints="NO" id="8uX-Mh-kTp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="FM8-6C-AMv" firstAttribute="leading" secondItem="OFf-nD-ZBi" secondAttribute="leading" id="M8M-IV-jsD"/>
-                            <constraint firstItem="OFf-nD-ZBi" firstAttribute="trailing" secondItem="FM8-6C-AMv" secondAttribute="trailing" id="n2L-tj-rGB"/>
-                            <constraint firstItem="FM8-6C-AMv" firstAttribute="top" secondItem="jvx-rU-wGO" secondAttribute="top" id="ofX-o6-Guc"/>
-                            <constraint firstItem="OFf-nD-ZBi" firstAttribute="bottom" secondItem="FM8-6C-AMv" secondAttribute="bottom" id="tsT-YW-nQ3"/>
+                            <constraint firstItem="rE0-n9-Giw" firstAttribute="bottom" secondItem="8uX-Mh-kTp" secondAttribute="bottom" id="55V-pc-fqh"/>
+                            <constraint firstItem="rE0-n9-Giw" firstAttribute="trailing" secondItem="8uX-Mh-kTp" secondAttribute="trailing" id="NVk-rl-t4S"/>
+                            <constraint firstItem="8uX-Mh-kTp" firstAttribute="top" secondItem="iuh-RB-Aga" secondAttribute="top" id="T7X-Do-AXJ"/>
+                            <constraint firstItem="8uX-Mh-kTp" firstAttribute="leading" secondItem="iuh-RB-Aga" secondAttribute="leading" id="oDj-n6-DAf"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="OFf-nD-ZBi"/>
+                        <viewLayoutGuide key="safeArea" id="rE0-n9-Giw"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="34e-zF-PlK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zVO-15-ENn" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="520.79999999999995" y="-636.4317841079461"/>
+            <point key="canvasLocation" x="-977" y="687"/>
+        </scene>
+        <!--Pen View Controller-->
+        <scene sceneID="0k5-6X-ADA">
+            <objects>
+                <viewController storyboardIdentifier="farmerPen" id="Di6-IN-B6C" customClass="penViewController" customModule="Human_Zoo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g6A-vK-sh3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pen1Screen" translatesAutoresizingMaskIntoConstraints="NO" id="rN8-lA-AKK">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.30423037500074845" green="0.74196486398963724" blue="0.20091354814538065" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farmers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5D-EF-v95">
+                                <rect key="frame" x="140" y="571.5" width="138" height="25.5"/>
+                                <color key="backgroundColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="UpheavalTT-BRK-" family="Upheaval TT (BRK)" pointSize="25"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.39662483970518125" green="0.2841688976836495" blue="0.15770018316359574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="1" height="3"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMo-tY-YLA">
+                                <rect key="frame" x="90" y="583" width="42" height="21"/>
+                                <color key="backgroundColor" red="0.30423037500074845" green="0.74196486398963724" blue="0.20091354814538065" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="count"/>
+                                <fontDescription key="fontDescription" name="UpheavalTT-BRK-" family="Upheaval TT (BRK)" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="qMR-HR-o7g" firstAttribute="bottom" secondItem="pMo-tY-YLA" secondAttribute="bottom" constant="63" id="8d6-pk-x0H"/>
+                            <constraint firstItem="pMo-tY-YLA" firstAttribute="leading" secondItem="qMR-HR-o7g" secondAttribute="leading" constant="90" id="93P-Qh-HoW"/>
+                            <constraint firstItem="qMR-HR-o7g" firstAttribute="trailing" secondItem="rN8-lA-AKK" secondAttribute="trailing" id="Dea-a7-Q2d"/>
+                            <constraint firstItem="rN8-lA-AKK" firstAttribute="leading" secondItem="g6A-vK-sh3" secondAttribute="leading" id="JjH-d3-HUH"/>
+                            <constraint firstItem="qMR-HR-o7g" firstAttribute="bottom" secondItem="o5D-EF-v95" secondAttribute="bottom" constant="70" id="LZL-ur-ruH"/>
+                            <constraint firstItem="qMR-HR-o7g" firstAttribute="bottom" secondItem="rN8-lA-AKK" secondAttribute="bottom" id="S1V-ef-1KP"/>
+                            <constraint firstItem="o5D-EF-v95" firstAttribute="leading" secondItem="pMo-tY-YLA" secondAttribute="trailing" constant="8" id="dZZ-lP-I5F"/>
+                            <constraint firstItem="qMR-HR-o7g" firstAttribute="trailing" secondItem="o5D-EF-v95" secondAttribute="trailing" constant="97" id="fOZ-24-wxO"/>
+                            <constraint firstItem="o5D-EF-v95" firstAttribute="leading" secondItem="qMR-HR-o7g" secondAttribute="leading" constant="140" id="n8l-dG-aqd"/>
+                            <constraint firstItem="rN8-lA-AKK" firstAttribute="top" secondItem="g6A-vK-sh3" secondAttribute="top" id="yif-GX-8P5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qMR-HR-o7g"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rJL-o2-7zI" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-180" y="838.83058470764627"/>
+        </scene>
+        <!--Pen View Controller-->
+        <scene sceneID="uOa-RR-JpJ">
+            <objects>
+                <viewController storyboardIdentifier="teacherPen" id="aeL-dV-9Tj" customClass="penViewController" customModule="Human_Zoo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ag5-rF-F7J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pen1Screen" translatesAutoresizingMaskIntoConstraints="NO" id="2r3-IB-bwY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.304230375" green="0.74196486399999995" blue="0.20091354810000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teachers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sb4-oF-HQh">
+                                <rect key="frame" x="140" y="571.5" width="138" height="25.5"/>
+                                <color key="backgroundColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="UpheavalTT-BRK-" family="Upheaval TT (BRK)" pointSize="25"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.39662483970000001" green="0.28416889769999998" blue="0.15770018320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="1" height="3"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcU-iF-sGj">
+                                <rect key="frame" x="90" y="583" width="42" height="21"/>
+                                <color key="backgroundColor" red="0.304230375" green="0.74196486399999995" blue="0.20091354810000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="count"/>
+                                <fontDescription key="fontDescription" name="UpheavalTT-BRK-" family="Upheaval TT (BRK)" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="2r3-IB-bwY" firstAttribute="leading" secondItem="Ag5-rF-F7J" secondAttribute="leading" id="57t-jf-D0t"/>
+                            <constraint firstItem="sb4-oF-HQh" firstAttribute="leading" secondItem="51A-pn-tu5" secondAttribute="leading" constant="140" id="FZ4-7N-DIL"/>
+                            <constraint firstItem="2r3-IB-bwY" firstAttribute="top" secondItem="Ag5-rF-F7J" secondAttribute="top" id="TaM-uT-ARn"/>
+                            <constraint firstItem="sb4-oF-HQh" firstAttribute="leading" secondItem="PcU-iF-sGj" secondAttribute="trailing" constant="8" id="Xui-Rg-nMD"/>
+                            <constraint firstItem="51A-pn-tu5" firstAttribute="bottom" secondItem="sb4-oF-HQh" secondAttribute="bottom" constant="70" id="ZLH-qO-vaf"/>
+                            <constraint firstItem="51A-pn-tu5" firstAttribute="bottom" secondItem="PcU-iF-sGj" secondAttribute="bottom" constant="63" id="c8V-bm-XbJ"/>
+                            <constraint firstItem="51A-pn-tu5" firstAttribute="trailing" secondItem="2r3-IB-bwY" secondAttribute="trailing" id="fZp-lH-QO1"/>
+                            <constraint firstItem="51A-pn-tu5" firstAttribute="bottom" secondItem="2r3-IB-bwY" secondAttribute="bottom" id="iX5-pf-Rxm"/>
+                            <constraint firstItem="51A-pn-tu5" firstAttribute="trailing" secondItem="sb4-oF-HQh" secondAttribute="trailing" constant="97" id="sVA-e1-saw"/>
+                            <constraint firstItem="PcU-iF-sGj" firstAttribute="leading" secondItem="51A-pn-tu5" secondAttribute="leading" constant="90" id="scy-J7-LYf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="51A-pn-tu5"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LtZ-Sm-OZn" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="574" y="839"/>
+        </scene>
+        <!--Pen View Controller-->
+        <scene sceneID="qof-i5-WqM">
+            <objects>
+                <viewController storyboardIdentifier="cashierPen" id="PPo-aR-CZu" customClass="penViewController" customModule="Human_Zoo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fGw-al-B7n">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pen1Screen" translatesAutoresizingMaskIntoConstraints="NO" id="nwe-pb-2Au">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.304230375" green="0.74196486399999995" blue="0.20091354810000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cashiers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcU-gn-WQM">
+                                <rect key="frame" x="140" y="571.5" width="138" height="26"/>
+                                <color key="backgroundColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="UpheavalTT-BRK-" family="Upheaval TT (BRK)" pointSize="25"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.39662483970000001" green="0.28416889769999998" blue="0.15770018320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="1" height="3"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Bj-xq-h4H">
+                                <rect key="frame" x="90" y="583" width="42" height="21"/>
+                                <color key="backgroundColor" red="0.304230375" green="0.74196486399999995" blue="0.20091354810000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="count"/>
+                                <fontDescription key="fontDescription" name="UpheavalTT-BRK-" family="Upheaval TT (BRK)" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="BcU-gn-WQM" firstAttribute="leading" secondItem="3Bj-xq-h4H" secondAttribute="trailing" constant="8" id="3R3-Df-cSO"/>
+                            <constraint firstItem="3Bj-xq-h4H" firstAttribute="leading" secondItem="jYs-6i-prX" secondAttribute="leading" constant="90" id="ALo-ax-Uye"/>
+                            <constraint firstItem="jYs-6i-prX" firstAttribute="trailing" secondItem="BcU-gn-WQM" secondAttribute="trailing" constant="97" id="BfM-3c-iAm"/>
+                            <constraint firstItem="jYs-6i-prX" firstAttribute="trailing" secondItem="nwe-pb-2Au" secondAttribute="trailing" id="EAI-SK-XNn"/>
+                            <constraint firstItem="nwe-pb-2Au" firstAttribute="top" secondItem="fGw-al-B7n" secondAttribute="top" id="Q76-5V-MnY"/>
+                            <constraint firstItem="jYs-6i-prX" firstAttribute="bottom" secondItem="nwe-pb-2Au" secondAttribute="bottom" id="a9s-Km-vss"/>
+                            <constraint firstItem="BcU-gn-WQM" firstAttribute="leading" secondItem="jYs-6i-prX" secondAttribute="leading" constant="140" id="dU9-66-V99"/>
+                            <constraint firstItem="nwe-pb-2Au" firstAttribute="leading" secondItem="fGw-al-B7n" secondAttribute="leading" id="ptK-gg-2t7"/>
+                            <constraint firstItem="jYs-6i-prX" firstAttribute="bottom" secondItem="3Bj-xq-h4H" secondAttribute="bottom" constant="63" id="tej-Dl-j9c"/>
+                            <constraint firstItem="jYs-6i-prX" firstAttribute="bottom" secondItem="BcU-gn-WQM" secondAttribute="bottom" constant="70" id="za5-Yp-kyA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jYs-6i-prX"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aPF-0C-yzF" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1455" y="839"/>
         </scene>
     </scenes>
     <resources>
-        <image name="homePage" width="1125" height="2001"/>
-        <image name="pen1Screen" width="1125" height="2001"/>
+        <image name="hangerScreen" width="1125" height="2001"/>
+        <image name="hangerScreenEdited" width="1123" height="1854"/>
+        <image name="homePage" width="1120" height="1854"/>
+        <image name="pen1Screen" width="1125" height="1857"/>
+        <image name="rescueButton" width="332" height="91"/>
     </resources>
 </document>
