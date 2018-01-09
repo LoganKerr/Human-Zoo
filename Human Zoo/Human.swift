@@ -11,12 +11,16 @@ import Foundation
 struct Human
 {
     var name: String
-    var value: Int
+    var value: Double
+    var timeTillSleep: Double
+    var valueEx: Double
     
-    init(n: String, v: Int)
+    init(n: String, v: Double, t: Double, ve: Double)
     {
         name = n
         value = v
+        timeTillSleep = t
+        valueEx = ve
     }
     
     func getName() -> String
@@ -24,8 +28,18 @@ struct Human
         return name
     }
     
-    func getValue() -> Int
+    func getValue() -> Double
     {
         return value
+    }
+    
+    func getTime() -> Double
+    {
+        return timeTillSleep
+    }
+    
+    func getValueEx() -> Double
+    {
+        return valueEx
     }
 }

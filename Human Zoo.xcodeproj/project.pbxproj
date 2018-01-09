@@ -78,8 +78,8 @@
 			children = (
 				0249E8CA1FECA486007B09D8 /* AppDelegate.swift */,
 				0249E8E21FECA762007B09D8 /* PageViewController.swift */,
-				0249E8E41FECAC68007B09D8 /* ViewController.swift */,
 				02A95E9A2001E0E500FB6FB2 /* Constants.swift */,
+				0249E8E41FECAC68007B09D8 /* ViewController.swift */,
 				02A95E982001D84D00FB6FB2 /* overlayViewController.swift */,
 				02A95E7D20017AD100FB6FB2 /* penViewController.swift */,
 				02A95E9C2001EA6500FB6FB2 /* Human.swift */,

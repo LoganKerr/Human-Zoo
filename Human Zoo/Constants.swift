@@ -9,7 +9,8 @@
 import Foundation
 
 let HUMANS_LIST: Array! = [
-    Human(n: "farmer", v: 1),
-    Human(n: "teacher", v: 1),
-    Human(n: "cashier", v: 1)
+    Human(n: "farmer", v: 10, t:30, ve: 300),
+    Human(n: "teacher", v: 10, t:60, ve: 300),
+    Human(n: "cashier", v: 15, t: 60, ve: 400)
 ]
+let MAX_HUMANS: Int! = 10
