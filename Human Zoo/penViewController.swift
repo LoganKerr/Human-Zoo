@@ -10,10 +10,13 @@ import UIKit
 
 class penViewController: UIViewController {
     
+    // each pen has accessibility label set as pen animal name
+    var penName:String? = nil
+    // each pen stores one type of human
+    var penHuman:Human? = nil
+    
     // sets count label as default nil
     var countLabel:UILabel? = nil
-    // each pen has accessibility label set as pen animal name
-    var viewLabel:String? = nil
     // sets coinsPerMinLabel as default nil
     var coinsPerMinLabel:UILabel? = nil
     // sets sleepButton as default nil
@@ -22,7 +25,14 @@ class penViewController: UIViewController {
     var sleepView:UIView? = nil
     // sets timeTillSleepLabel as default nil
     var timeLeft:UILabel? = nil
+    // seconds left until sleep
     var seconds:Int = 0
+    // max time before sleep for pen
+    var penTime:Int = 0
+    // value of each human
+    var penValue:Double = 0
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     let numberFormatter = NumberFormatter()
     var timer = Timer()
@@ -33,7 +43,17 @@ class penViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib
         
         // gets animal name from accessibilty label
-        viewLabel = self.accessibilityLabel as! String
+        penName = self.accessibilityLabel as! String
+        // gets timeTillSleep of pen human
+        for human in HUMANS_LIST
+        {
+            if (human.getName() == self.penName)
+            {
+                penHuman = human
+                penTime = human.getTime()
+                penValue = human.getValue()
+            }
+        }
         // for each view in view controller
         for view in self.view.subviews
         {
@@ -71,7 +91,8 @@ class penViewController: UIViewController {
                 }
             }
         }
-        scheduledTimerWithTimeInterval()
+        
+        setLastData()
         
         // observes if a human was rescued and pen must be updated
         NotificationCenter.default.addObserver(forName: NSNotification.Name("humanRescued"), object: nil, queue: nil)
@@ -80,81 +101,203 @@ class penViewController: UIViewController {
             let info = notification.userInfo as? Dictionary<String,Any>
             let human = info!["human"] as! Human
             let animalNum = info!["animalNum"] as! Int
-            let animalName = human.getName()
+            let humanName = human.getName()
             
             // if view's accessibility label matches rescued animal
-            if (self.viewLabel == animalName)
+            if (self.penName == humanName)
             {
                 self.countLabel?.text = "x"+String(animalNum)
+            }
+        }
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("timePassedWhileClosed"), object: nil, queue: nil)
+        {
+            notification in
+            let info = notification.userInfo as? Dictionary<String,Any>
+            let human = info!["human"] as! Human
+            if (self.seconds > 0)
+            {
+                let secondsPassed = info!["secondsPassed"] as! Int
+                self.seconds = self.seconds + secondsPassed
+                print("human: "+self.penName!)
+                print("seconds passed: "+String(secondsPassed))
+                print("seconds left: "+String(self.seconds - self.penTime))
+                UserDefaults.standard.set(self.seconds, forKey: self.penName!+"Seconds")
+                self.timeLeft?.text = String(self.penTime - self.seconds)+"s\n to sleep"
+                if (self.seconds - self.penTime <= 0) { self.displaySleep() }
+                else { self.scheduledTimerWithTimeInterval() }
             }
         }
     }
     
     func scheduledTimerWithTimeInterval(){
-        // calls earn crystals every 5 seconds
-        var time: Double = 0
-        for human in HUMANS_LIST
-        {
-            if (human.getName() == self.viewLabel)
-            {
-                time = human.getTime()
-            }
-        }
-        let timeData:[String: Any] = ["timeData":time]
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: ["time" : time], repeats: true)
+        // starts timer
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
     }
     
     @objc func updateTimer(timer: Timer)
     {
         seconds = seconds + 1
-        let userInfo = timer.userInfo as! Dictionary<String, Any>
-        var time:Int = userInfo["time"] as! Int
-        if (seconds >= time)
+        //let userInfo = timer.userInfo as! Dictionary<String, Any>
+        //var time:Int = userInfo["time"] as! Int
+        UserDefaults.standard.set(seconds, forKey: penName!+"Seconds")
+        timeLeft?.text = String(penTime - seconds)+"s\n to sleep"
+        if (seconds >= penTime)
         {
             humanSleep()
-            seconds = 0
-        }
-        else
-        {
-        timeLeft?.text = String(time - seconds)+"s\n to sleep"
+            stopTimer()
         }
     }
     
     func stopTimer()
     {
-        print("stopping timer")
         timer.invalidate()
+    }
+    
+    func displaySleep()
+    {
+        wakeUpButton?.isHidden = false
+        sleepView?.isHidden = false
     }
     
     @objc func humanSleep()
     {
-        print("oh no feell asleep");
-        wakeUpButton?.isHidden = false
-        let animalData:[String: Any] = ["animalName":viewLabel]
+        let animalData:[String: Human] = ["human":penHuman!]
         NotificationCenter.default.post(name: NSNotification.Name("humanSleep"), object: nil, userInfo: animalData)
-        sleepView?.isHidden = false
-        stopTimer()
+        displaySleep()
     }
     
     @IBAction func wakeUpHuman(_ sender: Any) {
-        print(viewLabel!+" pushed this button")
+        print("wake up "+String(penName!))
+        wakeUpHumanAction()
+    }
+    
+    func wakeUpHumanAction()
+    {
         wakeUpButton?.isHidden = true
-        let animalData:[String: Any] = ["animalName":viewLabel]
+        let animalData:[String: Any] = ["animalName":penName]
         NotificationCenter.default.post(name: NSNotification.Name("humanWake"), object: nil, userInfo: animalData)
         sleepView?.isHidden = true
+        seconds = 0
+        print("wakeUpHumanAction")
         scheduledTimerWithTimeInterval()
+    }
+    
+    func humanSleepOnLoad(humanData: Dictionary<String,Any>)
+    {
+        appDelegate.humansAsleepOnLoad.append(humanData)
+        wakeUpButton?.isHidden = false
+        sleepView?.isHidden = false
+        seconds = penTime
+        UserDefaults.standard.set(seconds, forKey: penName!+"Seconds")
+        timeLeft?.text = String(penTime - seconds)+"s\n to sleep"
+    }
+    
+    func wakeUpHumanOnLoad(humanData: Dictionary<String,Any>)
+    {
+        appDelegate.humansAwakeOnLoad.append(humanData)
+        wakeUpButton?.isHidden = true
+        sleepView?.isHidden = true
+        //scheduledTimerWithTimeInterval()
+    }
+    
+    func checkIfSleep() -> Bool
+    {
+        return seconds >= penTime
+    }
+    
+    func calcSinceClose(numHumans: Int, elapsedTime:Int)
+    {
+        print("seconds: "+String(seconds))
+        // time until human sleeps BEFORE THE APP WAS CLOSED
+        var timeTillSleepBefore:Int = penTime - seconds
+        
+        if (timeTillSleepBefore > penTime) { timeTillSleepBefore = penTime }
+        else if (timeTillSleepBefore < 0)
+        {
+            timeTillSleepBefore = 0
+        }
+        
+        // placeholder until set
+        var secondsTillSleepAfter:Int = timeTillSleepBefore
+        // placeholder until set
+        var crystalsGainedWhileClosed:Double = 0.0
+        
+        print ("timeTillSleepBefore: "+String(timeTillSleepBefore))
+        print("elapsedTime: "+String(elapsedTime))
+        
+        // if animal was asleep before closing. do nothing
+        if (timeTillSleepBefore <= 0)
+        {
+            // secondsTillSleep was 0 before app was closed, so it must be too now
+            secondsTillSleepAfter = 0
+            // no crystals are gained while human is asleep
+            crystalsGainedWhileClosed = 0
+            
+            // display sleep and stuff
+            displaySleep()
+            
+            timeTillSleepBefore = 0 // just in case lol
+        }
+        else
+        {
+            // animal was awake at time of closing but is asleep now
+            if (elapsedTime > timeTillSleepBefore)
+            {
+                // human has fallen asleep
+                secondsTillSleepAfter = 0
+                // gained value until sleep
+                crystalsGainedWhileClosed = Double(timeTillSleepBefore) * penValue
+                
+                // display sleep and stuff
+                displaySleep()
+            }
+            else
+            {
+                // animal was awake at time of closing and is awake now
+                secondsTillSleepAfter = timeTillSleepBefore - elapsedTime
+                crystalsGainedWhileClosed = Double(elapsedTime) * penValue
+                
+                // display wake stuff
+                scheduledTimerWithTimeInterval()
+            }
+        }
+        let humanData:Dictionary<String,Any> = [
+            "human":penHuman,
+            "count":UserDefaults.standard.integer(forKey: penName!),
+            "secondsTillSleep":secondsTillSleepAfter,
+            "crystalsGainedWhileClosed":crystalsGainedWhileClosed
+        ]
+        appDelegate.humanDataDelegate.append(humanData)
+        
+        // sets seconds counting up to penTime
+        seconds = penTime - secondsTillSleepAfter
+        UserDefaults.standard.set(seconds, forKey: penName!+"Seconds")
+        timeLeft?.text = String(penTime - seconds)+"s\n to sleep"
+        
+        print("new seconds: "+String(seconds))
     }
     
     func setLastData()
     {
-        self.countLabel?.text = "x"+String(UserDefaults.standard.integer(forKey: self.viewLabel!))
-        for human in HUMANS_LIST
-        {
-            if (human.getName() == self.viewLabel)
-            {
-                self.coinsPerMinLabel?.text = numberFormatter.string(from: NSNumber(value:human.getValue()))!+"\ncrystals/min"
-            }
-        }
+        // sets standard labels
+        self.countLabel?.text = "x"+String(UserDefaults.standard.integer(forKey: self.penName!))
+        self.coinsPerMinLabel?.text = numberFormatter.string(from: NSNumber(value:penValue))!+"\ncrystals/min"
+        
+        // test stuff below
+        print(appDelegate.timeOfOpen)
+        print(appDelegate.timeOfClose)
+        var elapsedTime:Int = Int((appDelegate.timeOfOpen!.timeIntervalSince(appDelegate.timeOfClose! as! Date)))
+        var crystalsFromThisPen:Double = 0
+        seconds = UserDefaults.standard.integer(forKey: self.penName!+"Seconds")
+        let numHumanInPen = UserDefaults.standard.integer(forKey: penName!)
+        
+        
+        calcSinceClose(numHumans: numHumanInPen, elapsedTime: elapsedTime)
+        
+        
+        //var humanData:Dictionary<String,Any> = ["secondsTillSleep": penTime - seconds, "human":penHuman!]
+       // if(checkIfSleep()) { humanSleepOnLoad(humanData: humanData) }
+        //else { wakeUpHumanOnLoad(humanData: humanData) }
     }
     
     override func didReceiveMemoryWarning() {

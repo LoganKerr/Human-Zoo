@@ -10,12 +10,16 @@ import Foundation
 
 struct Human
 {
+    // name of human
     var name: String
+    // crystals per min
     var value: Double
-    var timeTillSleep: Double
+    // max time till falls asleep
+    var timeTillSleep: Int
+    // value of exterminating human
     var valueEx: Double
     
-    init(n: String, v: Double, t: Double, ve: Double)
+    init(n: String, v: Double, t: Int, ve: Double)
     {
         name = n
         value = v
@@ -33,7 +37,7 @@ struct Human
         return value
     }
     
-    func getTime() -> Double
+    func getTime() -> Int
     {
         return timeTillSleep
     }

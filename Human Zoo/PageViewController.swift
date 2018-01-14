@@ -12,12 +12,21 @@ class MyPageViewController: UIPageViewController, UIPageViewControllerDataSource
     
     var pages = [UIViewController]()
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.delegate = self
         self.dataSource = self
         
+        appDelegate.timeOfOpen = Date()
+        appDelegate.timeOfClose = UserDefaults.standard.object(forKey: "timeOfClose") as? Date
+        if (appDelegate.timeOfClose == nil)
+        {
+            appDelegate.timeOfClose = appDelegate.timeOfOpen
+        }
+
         let hangarPage: UIViewController! = storyboard?.instantiateViewController(withIdentifier: "hangarPage")
         hangarPage.accessibilityLabel = "hangar"
         let _ = hangarPage.view
@@ -27,15 +36,12 @@ class MyPageViewController: UIPageViewController, UIPageViewControllerDataSource
         let farmerPen: penViewController! = (storyboard?.instantiateViewController(withIdentifier: "farmerPen"))! as! penViewController
         farmerPen.accessibilityLabel = "farmer"
         let _ = farmerPen.view
-        farmerPen.setLastData()
         let teacherPen: penViewController! = (storyboard?.instantiateViewController(withIdentifier: "teacherPen"))! as! penViewController
         teacherPen.accessibilityLabel = "teacher"
         let _ = teacherPen.view
-        teacherPen.setLastData()
         let cashierPen: penViewController! = (storyboard?.instantiateViewController(withIdentifier: "cashierPen"))! as! penViewController
         cashierPen.accessibilityLabel = "cashier"
         let _ = cashierPen.view
-        cashierPen.setLastData()
         
         pages.append(hangarPage)
         pages.append(homePage)
@@ -48,13 +54,15 @@ class MyPageViewController: UIPageViewController, UIPageViewControllerDataSource
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let currentIndex = pages.index(of: viewController)!
-        let previousIndex = abs((currentIndex - 1) % pages.count)
+        let previousIndex = currentIndex - 1
+        if (previousIndex == -1) { return nil }
         return pages[previousIndex]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         let currentIndex = pages.index(of: viewController)!
-        let nextIndex = abs((currentIndex + 1) % pages.count)
+        let nextIndex = currentIndex + 1
+        if (nextIndex >= pages.count) { return nil }
         return pages[nextIndex]
  
     }
