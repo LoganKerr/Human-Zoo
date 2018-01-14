@@ -13,6 +13,9 @@ class overlayViewController: UIViewController {
     @IBOutlet weak var humanCounter: UILabel!
     @IBOutlet weak var crystalCounter: UILabel!
     @IBOutlet weak var crystalsPerMinLabel: UILabel!
+    @IBOutlet weak var crystalsGainedView: UIView!
+    @IBOutlet weak var crystalsGainedWhileClosedLabel: UILabel!
+    @IBOutlet weak var crystalsGainedAcceptButton: UIButton!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -25,7 +28,7 @@ class overlayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLastData3()
+        setLastData()
         scheduledTimerWithTimeInterval()
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
         // Do any additional setup after loading the view, typically from a nib
@@ -74,7 +77,6 @@ class overlayViewController: UIViewController {
             // move this to view did load and save to global?
             var numHumans: Int = (UserDefaults.standard.integer(forKey: human.getName()) as? Int)!
             var value: Double = human.getValue() * Double(numHumans)
-            print("SUBTRACTING FROM CRYSTALS PER MIN AHHHHH");
             self.crystalsPerMin = self.crystalsPerMin - value
             self.crystalsPerMinLabel.text = self.numberFormatter.string(from: NSNumber(value:Int(self.crystalsPerMin)))!+"\ncrystals/min"
         }
@@ -105,135 +107,10 @@ class overlayViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.earnCrystals), userInfo: nil, repeats: true)
     }
     
-    /*
-    func getTotalHumans() -> Array<Any>
-    {
-        var crystalsPerMin: Double = 0
-        for human in HUMANS_LIST
-        {
-            var numHumans: Int = (UserDefaults.standard.integer(forKey: human.getName()) as? Int)!
-            crystalsPerMin = crystalsPerMin + Double(numHumans) * human.getValue()
-            self.totalHumans = (self.totalHumans + numHumans)
-        }
-        return [self.totalHumans, crystalsPerMin]
-    }
-     */
-    
-    /*
-    func setLastData2()
-    {
-        print("setting data")
-        numberFormatter.numberStyle = NumberFormatter.Style.decimal
-        
-        if (appDelegate.timeOfClose == nil) { appDelegate.timeOfClose = appDelegate.timeOfOpen }
-        
-        //if let elapsedTest:Double = appDelegate.timeOfOpen?.timeIntervalSince((appDelegate.timeOfClose?)!)
-        var elapsedTime:Int = Int((appDelegate.timeOfOpen?.timeIntervalSince(appDelegate.timeOfClose!))!)
-        self.crystals = (UserDefaults.standard.double(forKey: "totalCrystals") as? Double)!
-        
-        /*
-        for arr in appDelegate.humansAwakeOnLoad
-        {
-            let numHumanInPen = UserDefaults.standard.integer(forKey: human.getName())
-            totalHumans = totalHumans + numHumanInPen
-            crystalsPerMin = crystalsPerMin + Double(numHumanInPen) * human.getValue()
-        }
-        
-        for human in appDelegate.humansAsleepOnLoad
-        {
-            let numHumanInPen = UserDefaults.standard.integer(forKey: human.getName())
-            totalHumans = totalHumans + numHumanInPen
-        }
-         */
-        /*
-        for human in humansAwakeOnLoad
-        {
-            let timeEarn = min(elapsedTime, secondsTillSleep)
-            self.crystals = self.crystals + (crystalsPerMin * timeEarn)
-            crystalsPerMin = crystalsPerMin - (human.getValue() * numHumanInPen)
-            elapsedTime = elapsedTime - timeEarn
-            if (elapsedTime == 0) { break }
-        }
-         */
-        
-        // calculate total humans asleep
-        for dict in appDelegate.humansAsleepOnLoad
-        {
-            let human = dict["human"] as! Human
-            let numHumanInPen = UserDefaults.standard.integer(forKey: human.getName())
-            totalHumans = totalHumans + numHumanInPen
-        }
-        
-        // calculate total humans awake and crystalspermin at end of last session
-        for dict in appDelegate.humansAwakeOnLoad
-        {
-            let human = dict["human"] as! Human
-            let numHumanInPen = UserDefaults.standard.integer(forKey: human.getName())
-            totalHumans = totalHumans + numHumanInPen
-            crystalsPerMin = crystalsPerMin + Double(numHumanInPen) * human.getValue()
-        }
-        
-        print ("elapsedTime: ")
-        print(elapsedTime)
-        var totalSecondsElapsed:Int = 0
-        while appDelegate.humansAwakeOnLoad.count > 0 && elapsedTime > 0
-        {
-            var timeTillMin = appDelegate.humansAwakeOnLoad[0]["secondsTillSleep"] as! Int - totalSecondsElapsed
-            var nextHuman = appDelegate.humansAwakeOnLoad[0]["human"] as! Human
-            var minIndex = 0
-            // get next human to sleep
-            //for dict in appDelegate.humansAwakeOnLoad
-            for (index, dict) in appDelegate.humansAwakeOnLoad.enumerated()
-            {
-                let timeTill = dict["secondsTillSleep"] as! Int - totalSecondsElapsed
-                if timeTill < timeTillMin
-                {
-                    timeTillMin = timeTill
-                    nextHuman = dict["human"] as! Human
-                    minIndex = index
-                }
-            }
-            print("crystalsPerMin: "+String(crystalsPerMin))
-            print("next lowest time: "+String(timeTillMin))
-            let timeEarn = min(elapsedTime, timeTillMin)
-            let numHumanInPen = UserDefaults.standard.integer(forKey: nextHuman.getName())
-            print("gained: "+String(crystalsPerMin/60 * Double(timeEarn)))
-            crystals = crystals + (crystalsPerMin/60 * Double(timeEarn))
-            // time has passed so human seconds must be decremented
-            let nextHumanData:[String: Any] = ["human":nextHuman, "secondsPassed":timeEarn]
-            NotificationCenter.default.post(name: NSNotification.Name("timePassedWhileClosed"), object: nil, userInfo: nextHumanData)
-            // if animal fell asleep
-            if (timeTillMin < elapsedTime)
-            {
-                print("subtract: "+String(nextHuman.getValue() * Double(numHumanInPen)))
-                crystalsPerMin = crystalsPerMin - (nextHuman.getValue() * Double(numHumanInPen))
-                
-            }
-            elapsedTime = elapsedTime - timeEarn
-            totalSecondsElapsed = totalSecondsElapsed + timeEarn
-            appDelegate.humansAwakeOnLoad.remove(at: minIndex)
-        }
-        print("crystalsPerMinFinal: "+String(crystalsPerMin))
-        
-        
-        // set total humans
-        humanCounter.text = numberFormatter.string(from: NSNumber(value:Int(totalHumans)))!+"\nHUMANS"
-        
-        // set total crystals
-        crystalCounter.text = numberFormatter.string(from: NSNumber(value:Int(crystals)))!+"\ncrystals/min"
-        
-        // set crystals per min
-        crystalsPerMinLabel.text = numberFormatter.string(from: NSNumber(value:Int(crystalsPerMin)))!+"\ncrystals/min"
-        
-    }
- */
-    
-    func setLastData3()
+    func setLastData()
     {
         var testGained:Double = 0.0
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
-        
-        print(appDelegate.humanDataDelegate)
         
         // gets and sets globals
         for dict in appDelegate.humanDataDelegate
@@ -262,30 +139,23 @@ class overlayViewController: UIViewController {
         self.crystals = (UserDefaults.standard.double(forKey: "totalCrystals") as? Double)!
         crystalCounter.text = numberFormatter.string(from: NSNumber(value:Int(crystals)))!+"\ncrystals/min"
         
-        print("crystals Gained: "+String(testGained))
-        
         // sets crystals per min label
         crystalsPerMinLabel.text = numberFormatter.string(from: NSNumber(value:Int(crystalsPerMin)))!+"\ncrystals/min"
+        
+        if (testGained > 0)
+        {
+            crystalsGainedWhileClosedLabel.text = "You got "+numberFormatter.string(from: NSNumber(value:Int(testGained)))!+" crystals while you were away!"
+            crystalsGainedView.isHidden = false
+            crystalsGainedWhileClosedLabel.isHidden = false
+            crystalsGainedAcceptButton.isHidden = false
+        }
     }
-    
-    /*
-    func setLastData()
+    @IBAction func crystalsGainedAcceptClicked(_ sender: Any)
     {
-        numberFormatter.numberStyle = NumberFormatter.Style.decimal
-        var properties: Array<Any> = getTotalHumans()
-        // sets total humans
-        self.totalHumans = (properties[0] as? Int)!
-        humanCounter.text = numberFormatter.string(from: NSNumber(value:Int(totalHumans)))!+"\nHUMANS"
-        
-        // sets total crystals
-        self.crystals = (UserDefaults.standard.double(forKey: "totalCrystals") as? Double)!
-        crystalCounter.text = numberFormatter.string(from: NSNumber(value:Int(crystals)))!+"\ncrystals/min"
-        
-        // sets crystals per min
-        self.crystalsPerMin = (properties[1] as? Double)!
-        crystalsPerMinLabel.text = numberFormatter.string(from: NSNumber(value:Int(crystalsPerMin)))!+"\ncrystals/min"
+        crystalsGainedView.isHidden = true
+        crystalsGainedWhileClosedLabel.isHidden = true
+        crystalsGainedAcceptButton.isHidden = true
     }
- */
     
     @objc func earnCrystals()
     {

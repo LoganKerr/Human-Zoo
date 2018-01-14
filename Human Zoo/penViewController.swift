@@ -109,24 +109,6 @@ class penViewController: UIViewController {
                 self.countLabel?.text = "x"+String(animalNum)
             }
         }
-        NotificationCenter.default.addObserver(forName: NSNotification.Name("timePassedWhileClosed"), object: nil, queue: nil)
-        {
-            notification in
-            let info = notification.userInfo as? Dictionary<String,Any>
-            let human = info!["human"] as! Human
-            if (self.seconds > 0)
-            {
-                let secondsPassed = info!["secondsPassed"] as! Int
-                self.seconds = self.seconds + secondsPassed
-                print("human: "+self.penName!)
-                print("seconds passed: "+String(secondsPassed))
-                print("seconds left: "+String(self.seconds - self.penTime))
-                UserDefaults.standard.set(self.seconds, forKey: self.penName!+"Seconds")
-                self.timeLeft?.text = String(self.penTime - self.seconds)+"s\n to sleep"
-                if (self.seconds - self.penTime <= 0) { self.displaySleep() }
-                else { self.scheduledTimerWithTimeInterval() }
-            }
-        }
     }
     
     func scheduledTimerWithTimeInterval(){
@@ -137,8 +119,6 @@ class penViewController: UIViewController {
     @objc func updateTimer(timer: Timer)
     {
         seconds = seconds + 1
-        //let userInfo = timer.userInfo as! Dictionary<String, Any>
-        //var time:Int = userInfo["time"] as! Int
         UserDefaults.standard.set(seconds, forKey: penName!+"Seconds")
         timeLeft?.text = String(penTime - seconds)+"s\n to sleep"
         if (seconds >= penTime)
@@ -167,7 +147,6 @@ class penViewController: UIViewController {
     }
     
     @IBAction func wakeUpHuman(_ sender: Any) {
-        print("wake up "+String(penName!))
         wakeUpHumanAction()
     }
     
@@ -178,36 +157,13 @@ class penViewController: UIViewController {
         NotificationCenter.default.post(name: NSNotification.Name("humanWake"), object: nil, userInfo: animalData)
         sleepView?.isHidden = true
         seconds = 0
-        print("wakeUpHumanAction")
         scheduledTimerWithTimeInterval()
-    }
-    
-    func humanSleepOnLoad(humanData: Dictionary<String,Any>)
-    {
-        appDelegate.humansAsleepOnLoad.append(humanData)
-        wakeUpButton?.isHidden = false
-        sleepView?.isHidden = false
-        seconds = penTime
-        UserDefaults.standard.set(seconds, forKey: penName!+"Seconds")
-        timeLeft?.text = String(penTime - seconds)+"s\n to sleep"
-    }
-    
-    func wakeUpHumanOnLoad(humanData: Dictionary<String,Any>)
-    {
-        appDelegate.humansAwakeOnLoad.append(humanData)
-        wakeUpButton?.isHidden = true
-        sleepView?.isHidden = true
-        //scheduledTimerWithTimeInterval()
-    }
-    
-    func checkIfSleep() -> Bool
-    {
-        return seconds >= penTime
     }
     
     func calcSinceClose(numHumans: Int, elapsedTime:Int)
     {
-        print("seconds: "+String(seconds))
+        // num of humans in pen
+        let count = UserDefaults.standard.integer(forKey: penName!)
         // time until human sleeps BEFORE THE APP WAS CLOSED
         var timeTillSleepBefore:Int = penTime - seconds
         
@@ -221,9 +177,6 @@ class penViewController: UIViewController {
         var secondsTillSleepAfter:Int = timeTillSleepBefore
         // placeholder until set
         var crystalsGainedWhileClosed:Double = 0.0
-        
-        print ("timeTillSleepBefore: "+String(timeTillSleepBefore))
-        print("elapsedTime: "+String(elapsedTime))
         
         // if animal was asleep before closing. do nothing
         if (timeTillSleepBefore <= 0)
@@ -246,7 +199,7 @@ class penViewController: UIViewController {
                 // human has fallen asleep
                 secondsTillSleepAfter = 0
                 // gained value until sleep
-                crystalsGainedWhileClosed = Double(timeTillSleepBefore) * penValue
+                crystalsGainedWhileClosed = Double(timeTillSleepBefore) * penValue/60 * Double(count)
                 
                 // display sleep and stuff
                 displaySleep()
@@ -255,7 +208,7 @@ class penViewController: UIViewController {
             {
                 // animal was awake at time of closing and is awake now
                 secondsTillSleepAfter = timeTillSleepBefore - elapsedTime
-                crystalsGainedWhileClosed = Double(elapsedTime) * penValue
+                crystalsGainedWhileClosed = Double(elapsedTime) * penValue/60 * Double(count)
                 
                 // display wake stuff
                 scheduledTimerWithTimeInterval()
@@ -263,7 +216,7 @@ class penViewController: UIViewController {
         }
         let humanData:Dictionary<String,Any> = [
             "human":penHuman,
-            "count":UserDefaults.standard.integer(forKey: penName!),
+            "count":count,
             "secondsTillSleep":secondsTillSleepAfter,
             "crystalsGainedWhileClosed":crystalsGainedWhileClosed
         ]
@@ -273,8 +226,6 @@ class penViewController: UIViewController {
         seconds = penTime - secondsTillSleepAfter
         UserDefaults.standard.set(seconds, forKey: penName!+"Seconds")
         timeLeft?.text = String(penTime - seconds)+"s\n to sleep"
-        
-        print("new seconds: "+String(seconds))
     }
     
     func setLastData()
@@ -284,20 +235,13 @@ class penViewController: UIViewController {
         self.coinsPerMinLabel?.text = numberFormatter.string(from: NSNumber(value:penValue))!+"\ncrystals/min"
         
         // test stuff below
-        print(appDelegate.timeOfOpen)
-        print(appDelegate.timeOfClose)
         var elapsedTime:Int = Int((appDelegate.timeOfOpen!.timeIntervalSince(appDelegate.timeOfClose! as! Date)))
         var crystalsFromThisPen:Double = 0
         seconds = UserDefaults.standard.integer(forKey: self.penName!+"Seconds")
         let numHumanInPen = UserDefaults.standard.integer(forKey: penName!)
         
-        
         calcSinceClose(numHumans: numHumanInPen, elapsedTime: elapsedTime)
         
-        
-        //var humanData:Dictionary<String,Any> = ["secondsTillSleep": penTime - seconds, "human":penHuman!]
-       // if(checkIfSleep()) { humanSleepOnLoad(humanData: humanData) }
-        //else { wakeUpHumanOnLoad(humanData: humanData) }
     }
     
     override func didReceiveMemoryWarning() {
