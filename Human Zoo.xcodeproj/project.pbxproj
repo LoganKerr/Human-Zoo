@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02003957200AB99C00730E6B /* PriorityQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02003956200AB99C00730E6B /* PriorityQueue.swift */; };
 		0230519E22024A670066FE1D /* munro_narrow.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0230519322024A670066FE1D /* munro_narrow.ttf */; };
 		0230519F22024A670066FE1D /* 8-BIT WONDER.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 0230519422024A670066FE1D /* 8-BIT WONDER.TTF */; };
 		023051A022024A670066FE1D /* Pixel-Noir Skinny Short.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0230519522024A670066FE1D /* Pixel-Noir Skinny Short.ttf */; };
@@ -21,16 +20,11 @@
 		023051A822024A670066FE1D /* Pixel-Noir.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0230519D22024A670066FE1D /* Pixel-Noir.ttf */; };
 		0249E8CB1FECA486007B09D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249E8CA1FECA486007B09D8 /* AppDelegate.swift */; };
 		0249E8D61FECA486007B09D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0249E8D41FECA486007B09D8 /* Main.storyboard */; };
-		0249E8DB1FECA486007B09D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0249E8D91FECA486007B09D8 /* LaunchScreen.storyboard */; };
-		0249E8E31FECA762007B09D8 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249E8E21FECA762007B09D8 /* PageViewController.swift */; };
-		02A95E7E20017AD100FB6FB2 /* penViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A95E7D20017AD100FB6FB2 /* penViewController.swift */; };
-		02A95E992001D84D00FB6FB2 /* overlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A95E982001D84D00FB6FB2 /* overlayViewController.swift */; };
 		02A95E9B2001E0E500FB6FB2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A95E9A2001E0E500FB6FB2 /* Constants.swift */; };
 		02A95E9D2001EA6500FB6FB2 /* Human.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A95E9C2001EA6500FB6FB2 /* Human.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		02003956200AB99C00730E6B /* PriorityQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityQueue.swift; sourceTree = "<group>"; };
 		0230519322024A670066FE1D /* munro_narrow.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro_narrow.ttf; sourceTree = "<group>"; };
 		0230519422024A670066FE1D /* 8-BIT WONDER.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "8-BIT WONDER.TTF"; sourceTree = "<group>"; };
 		0230519522024A670066FE1D /* Pixel-Noir Skinny Short.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pixel-Noir Skinny Short.ttf"; sourceTree = "<group>"; };
@@ -45,12 +39,8 @@
 		0249E8C71FECA486007B09D8 /* Human Zoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Human Zoo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0249E8CA1FECA486007B09D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0249E8D51FECA486007B09D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0249E8DA1FECA486007B09D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0249E8DC1FECA486007B09D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0249E8E21FECA762007B09D8 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		029B3015201940E1005DBC1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		02A95E7D20017AD100FB6FB2 /* penViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = penViewController.swift; sourceTree = "<group>"; };
-		02A95E982001D84D00FB6FB2 /* overlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = overlayViewController.swift; sourceTree = "<group>"; };
 		02A95E9A2001E0E500FB6FB2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		02A95E9C2001EA6500FB6FB2 /* Human.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Human.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,15 +76,10 @@
 			isa = PBXGroup;
 			children = (
 				0249E8CA1FECA486007B09D8 /* AppDelegate.swift */,
-				0249E8E21FECA762007B09D8 /* PageViewController.swift */,
-				02A95E982001D84D00FB6FB2 /* overlayViewController.swift */,
-				02A95E7D20017AD100FB6FB2 /* penViewController.swift */,
 				02A95E9C2001EA6500FB6FB2 /* Human.swift */,
-				02003956200AB99C00730E6B /* PriorityQueue.swift */,
 				02A95E9A2001E0E500FB6FB2 /* Constants.swift */,
 				029B3015201940E1005DBC1F /* Assets.xcassets */,
 				0249E8D41FECA486007B09D8 /* Main.storyboard */,
-				0249E8D91FECA486007B09D8 /* LaunchScreen.storyboard */,
 				0249E8DC1FECA486007B09D8 /* Info.plist */,
 				02A95E872001C40600FB6FB2 /* Fonts */,
 			);
@@ -146,11 +131,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Logan Kerr";
 				TargetAttributes = {
 					0249E8C61FECA486007B09D8 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -182,7 +168,6 @@
 				0230519E22024A670066FE1D /* munro_narrow.ttf in Resources */,
 				023051A422024A670066FE1D /* Pixel-Noir Skinny.ttf in Resources */,
 				023051A122024A670066FE1D /* munro_small.ttf in Resources */,
-				0249E8DB1FECA486007B09D8 /* LaunchScreen.storyboard in Resources */,
 				023051A222024A670066FE1D /* munro.ttf in Resources */,
 				023051A522024A670066FE1D /* Petyka - Retro Computer___SHORT.ttf in Resources */,
 				023051A822024A670066FE1D /* Pixel-Noir.ttf in Resources */,
@@ -201,12 +186,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02A95E7E20017AD100FB6FB2 /* penViewController.swift in Sources */,
 				02A95E9D2001EA6500FB6FB2 /* Human.swift in Sources */,
 				0249E8CB1FECA486007B09D8 /* AppDelegate.swift in Sources */,
-				02A95E992001D84D00FB6FB2 /* overlayViewController.swift in Sources */,
-				02003957200AB99C00730E6B /* PriorityQueue.swift in Sources */,
-				0249E8E31FECA762007B09D8 /* PageViewController.swift in Sources */,
 				02A95E9B2001E0E500FB6FB2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,14 +201,6 @@
 				0249E8D51FECA486007B09D8 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		0249E8D91FECA486007B09D8 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0249E8DA1FECA486007B09D8 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -247,6 +220,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -254,6 +228,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -304,6 +279,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -311,6 +287,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -350,7 +327,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.LoganKerr.Human-Zoo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -365,7 +342,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.LoganKerr.Human-Zoo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
