@@ -8,14 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		02003957200AB99C00730E6B /* PriorityQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02003956200AB99C00730E6B /* PriorityQueue.swift */; };
+		0230519E22024A670066FE1D /* munro_narrow.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0230519322024A670066FE1D /* munro_narrow.ttf */; };
+		0230519F22024A670066FE1D /* 8-BIT WONDER.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 0230519422024A670066FE1D /* 8-BIT WONDER.TTF */; };
+		023051A022024A670066FE1D /* Pixel-Noir Skinny Short.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0230519522024A670066FE1D /* Pixel-Noir Skinny Short.ttf */; };
+		023051A122024A670066FE1D /* munro_small.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0230519622024A670066FE1D /* munro_small.ttf */; };
+		023051A222024A670066FE1D /* munro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0230519722024A670066FE1D /* munro.ttf */; };
+		023051A322024A670066FE1D /* Pixel-Noir Caps.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0230519822024A670066FE1D /* Pixel-Noir Caps.ttf */; };
+		023051A422024A670066FE1D /* Pixel-Noir Skinny.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0230519922024A670066FE1D /* Pixel-Noir Skinny.ttf */; };
+		023051A522024A670066FE1D /* Petyka - Retro Computer___SHORT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0230519A22024A670066FE1D /* Petyka - Retro Computer___SHORT.ttf */; };
+		023051A622024A670066FE1D /* Pixel-Noir Skinny Caps.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0230519B22024A670066FE1D /* Pixel-Noir Skinny Caps.ttf */; };
+		023051A722024A670066FE1D /* upheavtt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0230519C22024A670066FE1D /* upheavtt.ttf */; };
+		023051A822024A670066FE1D /* Pixel-Noir.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0230519D22024A670066FE1D /* Pixel-Noir.ttf */; };
 		0249E8CB1FECA486007B09D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249E8CA1FECA486007B09D8 /* AppDelegate.swift */; };
 		0249E8D61FECA486007B09D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0249E8D41FECA486007B09D8 /* Main.storyboard */; };
 		0249E8DB1FECA486007B09D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0249E8D91FECA486007B09D8 /* LaunchScreen.storyboard */; };
 		0249E8E31FECA762007B09D8 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249E8E21FECA762007B09D8 /* PageViewController.swift */; };
-		0249E8E51FECAC68007B09D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249E8E41FECAC68007B09D8 /* ViewController.swift */; };
-		029B3014201940DF005DBC1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029B3013201940DF005DBC1F /* Assets.xcassets */; };
 		02A95E7E20017AD100FB6FB2 /* penViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A95E7D20017AD100FB6FB2 /* penViewController.swift */; };
-		02A95E972001CDD100FB6FB2 /* upheavtt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02A95E962001CC0200FB6FB2 /* upheavtt.ttf */; };
 		02A95E992001D84D00FB6FB2 /* overlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A95E982001D84D00FB6FB2 /* overlayViewController.swift */; };
 		02A95E9B2001E0E500FB6FB2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A95E9A2001E0E500FB6FB2 /* Constants.swift */; };
 		02A95E9D2001EA6500FB6FB2 /* Human.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A95E9C2001EA6500FB6FB2 /* Human.swift */; };
@@ -23,27 +31,25 @@
 
 /* Begin PBXFileReference section */
 		02003956200AB99C00730E6B /* PriorityQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityQueue.swift; sourceTree = "<group>"; };
+		0230519322024A670066FE1D /* munro_narrow.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro_narrow.ttf; sourceTree = "<group>"; };
+		0230519422024A670066FE1D /* 8-BIT WONDER.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "8-BIT WONDER.TTF"; sourceTree = "<group>"; };
+		0230519522024A670066FE1D /* Pixel-Noir Skinny Short.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pixel-Noir Skinny Short.ttf"; sourceTree = "<group>"; };
+		0230519622024A670066FE1D /* munro_small.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro_small.ttf; sourceTree = "<group>"; };
+		0230519722024A670066FE1D /* munro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro.ttf; sourceTree = "<group>"; };
+		0230519822024A670066FE1D /* Pixel-Noir Caps.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pixel-Noir Caps.ttf"; sourceTree = "<group>"; };
+		0230519922024A670066FE1D /* Pixel-Noir Skinny.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pixel-Noir Skinny.ttf"; sourceTree = "<group>"; };
+		0230519A22024A670066FE1D /* Petyka - Retro Computer___SHORT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Petyka - Retro Computer___SHORT.ttf"; sourceTree = "<group>"; };
+		0230519B22024A670066FE1D /* Pixel-Noir Skinny Caps.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pixel-Noir Skinny Caps.ttf"; sourceTree = "<group>"; };
+		0230519C22024A670066FE1D /* upheavtt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = upheavtt.ttf; sourceTree = "<group>"; };
+		0230519D22024A670066FE1D /* Pixel-Noir.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pixel-Noir.ttf"; sourceTree = "<group>"; };
 		0249E8C71FECA486007B09D8 /* Human Zoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Human Zoo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0249E8CA1FECA486007B09D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0249E8D51FECA486007B09D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0249E8DA1FECA486007B09D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0249E8DC1FECA486007B09D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0249E8E21FECA762007B09D8 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
-		0249E8E41FECAC68007B09D8 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "../../../Downloads/Swift-UI-Page-Control-Tutorial-master/PageControl/ViewController.swift"; sourceTree = "<group>"; };
-		029B3013201940DF005DBC1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
 		029B3015201940E1005DBC1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02A95E7D20017AD100FB6FB2 /* penViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = penViewController.swift; sourceTree = "<group>"; };
-		02A95E882001C40E00FB6FB2 /* munro_narrow.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro_narrow.ttf; sourceTree = "<group>"; };
-		02A95E892001C41000FB6FB2 /* munro_small.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro_small.ttf; sourceTree = "<group>"; };
-		02A95E8B2001C42500FB6FB2 /* munro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro.ttf; sourceTree = "<group>"; };
-		02A95E8C2001C43D00FB6FB2 /* Pixel-Noir Skinny.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pixel-Noir Skinny.ttf"; path = "../../../../Downloads/pixel_noir/Pixel-Noir Skinny.ttf"; sourceTree = "<group>"; };
-		02A95E8D2001C43D00FB6FB2 /* Pixel-Noir.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pixel-Noir.ttf"; path = "../../../../Downloads/pixel_noir/Pixel-Noir.ttf"; sourceTree = "<group>"; };
-		02A95E8E2001C43D00FB6FB2 /* Pixel-Noir Skinny Short.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pixel-Noir Skinny Short.ttf"; path = "../../../../Downloads/pixel_noir/Pixel-Noir Skinny Short.ttf"; sourceTree = "<group>"; };
-		02A95E8F2001C43D00FB6FB2 /* Pixel-Noir Caps.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pixel-Noir Caps.ttf"; path = "../../../../Downloads/pixel_noir/Pixel-Noir Caps.ttf"; sourceTree = "<group>"; };
-		02A95E902001C43D00FB6FB2 /* Pixel-Noir Skinny Caps.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pixel-Noir Skinny Caps.ttf"; path = "../../../../Downloads/pixel_noir/Pixel-Noir Skinny Caps.ttf"; sourceTree = "<group>"; };
-		02A95E922001C45A00FB6FB2 /* Petyka - Retro Computer___SHORT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Petyka - Retro Computer___SHORT.ttf"; path = "../../../../Downloads/petyka_retro_computer_short/Petyka - Retro Computer___SHORT.ttf"; sourceTree = "<group>"; };
-		02A95E932001C46400FB6FB2 /* bit wonder.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "bit wonder.ttf"; path = "../../../../Downloads/8bit_wonder/bit wonder.ttf"; sourceTree = "<group>"; };
-		02A95E962001CC0200FB6FB2 /* upheavtt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = upheavtt.ttf; path = ../../../../Downloads/upheaval/upheavtt.ttf; sourceTree = "<group>"; };
 		02A95E982001D84D00FB6FB2 /* overlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = overlayViewController.swift; sourceTree = "<group>"; };
 		02A95E9A2001E0E500FB6FB2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		02A95E9C2001EA6500FB6FB2 /* Human.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Human.swift; sourceTree = "<group>"; };
@@ -65,7 +71,6 @@
 			children = (
 				0249E8C91FECA486007B09D8 /* Human Zoo */,
 				0249E8C81FECA486007B09D8 /* Products */,
-				029B3013201940DF005DBC1F /* Assets.xcassets */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,7 +87,6 @@
 			children = (
 				0249E8CA1FECA486007B09D8 /* AppDelegate.swift */,
 				0249E8E21FECA762007B09D8 /* PageViewController.swift */,
-				0249E8E41FECAC68007B09D8 /* ViewController.swift */,
 				02A95E982001D84D00FB6FB2 /* overlayViewController.swift */,
 				02A95E7D20017AD100FB6FB2 /* penViewController.swift */,
 				02A95E9C2001EA6500FB6FB2 /* Human.swift */,
@@ -100,17 +104,17 @@
 		02A95E872001C40600FB6FB2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				02A95E892001C41000FB6FB2 /* munro_small.ttf */,
-				02A95E8B2001C42500FB6FB2 /* munro.ttf */,
-				02A95E882001C40E00FB6FB2 /* munro_narrow.ttf */,
-				02A95E8F2001C43D00FB6FB2 /* Pixel-Noir Caps.ttf */,
-				02A95E902001C43D00FB6FB2 /* Pixel-Noir Skinny Caps.ttf */,
-				02A95E8E2001C43D00FB6FB2 /* Pixel-Noir Skinny Short.ttf */,
-				02A95E8C2001C43D00FB6FB2 /* Pixel-Noir Skinny.ttf */,
-				02A95E8D2001C43D00FB6FB2 /* Pixel-Noir.ttf */,
-				02A95E922001C45A00FB6FB2 /* Petyka - Retro Computer___SHORT.ttf */,
-				02A95E932001C46400FB6FB2 /* bit wonder.ttf */,
-				02A95E962001CC0200FB6FB2 /* upheavtt.ttf */,
+				0230519422024A670066FE1D /* 8-BIT WONDER.TTF */,
+				0230519322024A670066FE1D /* munro_narrow.ttf */,
+				0230519622024A670066FE1D /* munro_small.ttf */,
+				0230519722024A670066FE1D /* munro.ttf */,
+				0230519A22024A670066FE1D /* Petyka - Retro Computer___SHORT.ttf */,
+				0230519822024A670066FE1D /* Pixel-Noir Caps.ttf */,
+				0230519B22024A670066FE1D /* Pixel-Noir Skinny Caps.ttf */,
+				0230519522024A670066FE1D /* Pixel-Noir Skinny Short.ttf */,
+				0230519922024A670066FE1D /* Pixel-Noir Skinny.ttf */,
+				0230519D22024A670066FE1D /* Pixel-Noir.ttf */,
+				0230519C22024A670066FE1D /* upheavtt.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -175,9 +179,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				0249E8D61FECA486007B09D8 /* Main.storyboard in Resources */,
+				0230519E22024A670066FE1D /* munro_narrow.ttf in Resources */,
+				023051A422024A670066FE1D /* Pixel-Noir Skinny.ttf in Resources */,
+				023051A122024A670066FE1D /* munro_small.ttf in Resources */,
 				0249E8DB1FECA486007B09D8 /* LaunchScreen.storyboard in Resources */,
-				029B3014201940DF005DBC1F /* Assets.xcassets in Resources */,
-				02A95E972001CDD100FB6FB2 /* upheavtt.ttf in Resources */,
+				023051A222024A670066FE1D /* munro.ttf in Resources */,
+				023051A522024A670066FE1D /* Petyka - Retro Computer___SHORT.ttf in Resources */,
+				023051A822024A670066FE1D /* Pixel-Noir.ttf in Resources */,
+				023051A322024A670066FE1D /* Pixel-Noir Caps.ttf in Resources */,
+				0230519F22024A670066FE1D /* 8-BIT WONDER.TTF in Resources */,
+				023051A722024A670066FE1D /* upheavtt.ttf in Resources */,
+				023051A022024A670066FE1D /* Pixel-Noir Skinny Short.ttf in Resources */,
+				023051A622024A670066FE1D /* Pixel-Noir Skinny Caps.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +203,6 @@
 			files = (
 				02A95E7E20017AD100FB6FB2 /* penViewController.swift in Sources */,
 				02A95E9D2001EA6500FB6FB2 /* Human.swift in Sources */,
-				0249E8E51FECAC68007B09D8 /* ViewController.swift in Sources */,
 				0249E8CB1FECA486007B09D8 /* AppDelegate.swift in Sources */,
 				02A95E992001D84D00FB6FB2 /* overlayViewController.swift in Sources */,
 				02003957200AB99C00730E6B /* PriorityQueue.swift in Sources */,
