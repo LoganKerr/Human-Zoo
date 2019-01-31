@@ -14,8 +14,9 @@ class PenViewController: UIViewController {
     @IBOutlet weak var humanName: UILabel!
     
     override func viewDidLoad() {
+        //viewController.dataSource = self
         super.viewDidLoad()
-
+        humanName.text = dataObject
         // Do any additional setup after loading the view.
     }
     
