@@ -50,7 +50,7 @@ class OverlayViewController: UIViewController, UIPageViewControllerDelegate {
         self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         self.pageViewController!.delegate = self
         
-        let startingViewController: PenViewController = self.modelController.viewControllerAtIndex(0, storyboard: self.storyboard!)!
+        let startingViewController: UIViewController = storyboard?.instantiateViewController(withIdentifier: "hangarView") as! UIViewController
         let viewControllers = [startingViewController]
         
         self.pageViewController!.setViewControllers(viewControllers, direction: .forward, animated: false, completion: {done in })

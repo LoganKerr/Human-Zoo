@@ -35,12 +35,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGg-5v-Wuf">
-                                <rect key="frame" x="274" y="20" width="85" height="30"/>
+                                <rect key="frame" x="248" y="20" width="111" height="30"/>
                                 <color key="backgroundColor" red="0.77018349119999996" green="1" blue="0.53568593289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
-                                <state key="normal" title="Get Humans"/>
+                                <state key="normal" title="Abduct Humans"/>
                                 <connections>
-                                    <segue destination="dTP-RI-FbY" kind="show" identifier="Minigame" id="1aI-dl-Cca"/>
+                                    <segue destination="yuk-Dc-Mw5" kind="push" id="6R1-6b-AJW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -59,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M2W-Qv-svI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-326" y="-532"/>
+            <point key="canvasLocation" x="-327" y="-532"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="vNv-yZ-Nnr">
@@ -84,10 +84,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fz7-Yb-Jas"/>
                     </view>
+                    <navigationItem key="navigationItem" id="KbL-sa-l8g"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uva-Us-tbR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="390" y="-532"/>
+            <point key="canvasLocation" x="370" y="152"/>
         </scene>
         <!--Pen View Controller-->
         <scene sceneID="EzC-aj-5VK">
@@ -118,6 +119,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ygb-qJ-dVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-327" y="152"/>
+        </scene>
+        <!--Ufo Hangar View Controller-->
+        <scene sceneID="RJp-Rk-Umn">
+            <objects>
+                <tableViewController id="yuk-Dc-Mw5" customClass="UfoHangarViewController" customModule="Human_Zoo" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Nsa-Nh-h8m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" id="SOT-sG-jVC">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SOT-sG-jVC" id="8by-EZ-OD9">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="yuk-Dc-Mw5" id="NJN-Yy-JTZ"/>
+                            <outlet property="delegate" destination="yuk-Dc-Mw5" id="7jk-R0-Dqf"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="eeK-h0-ziA"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MSy-c9-cfl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="369" y="-532"/>
         </scene>
     </scenes>
 </document>
