@@ -18,7 +18,10 @@
 		023051A622024A670066FE1D /* Pixel-Noir Skinny Caps.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0230519B22024A670066FE1D /* Pixel-Noir Skinny Caps.ttf */; };
 		023051A722024A670066FE1D /* upheavtt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0230519C22024A670066FE1D /* upheavtt.ttf */; };
 		023051A822024A670066FE1D /* Pixel-Noir.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0230519D22024A670066FE1D /* Pixel-Noir.ttf */; };
-		023051AE220278E20066FE1D /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023051AD220278E20066FE1D /* PageViewController.swift */; };
+		023051B6220299750066FE1D /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023051B5220299750066FE1D /* OverlayViewController.swift */; };
+		023051B822029CD90066FE1D /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023051B722029CD90066FE1D /* ModelController.swift */; };
+		023051BA22029DDB0066FE1D /* PenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023051B922029DDB0066FE1D /* PenViewController.swift */; };
+		023051BE2202A1470066FE1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023051BD2202A1460066FE1D /* ViewController.swift */; };
 		0249E8CB1FECA486007B09D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0249E8CA1FECA486007B09D8 /* AppDelegate.swift */; };
 		0249E8D61FECA486007B09D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0249E8D41FECA486007B09D8 /* Main.storyboard */; };
 		02A95E9B2001E0E500FB6FB2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A95E9A2001E0E500FB6FB2 /* Constants.swift */; };
@@ -37,7 +40,10 @@
 		0230519B22024A670066FE1D /* Pixel-Noir Skinny Caps.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pixel-Noir Skinny Caps.ttf"; sourceTree = "<group>"; };
 		0230519C22024A670066FE1D /* upheavtt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = upheavtt.ttf; sourceTree = "<group>"; };
 		0230519D22024A670066FE1D /* Pixel-Noir.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pixel-Noir.ttf"; sourceTree = "<group>"; };
-		023051AD220278E20066FE1D /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		023051B5220299750066FE1D /* OverlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
+		023051B722029CD90066FE1D /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
+		023051B922029DDB0066FE1D /* PenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenViewController.swift; sourceTree = "<group>"; };
+		023051BD2202A1460066FE1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0249E8C71FECA486007B09D8 /* Human Zoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Human Zoo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0249E8CA1FECA486007B09D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0249E8D51FECA486007B09D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,7 +83,10 @@
 		0249E8C91FECA486007B09D8 /* Human Zoo */ = {
 			isa = PBXGroup;
 			children = (
-				023051AD220278E20066FE1D /* PageViewController.swift */,
+				023051BD2202A1460066FE1D /* ViewController.swift */,
+				023051B922029DDB0066FE1D /* PenViewController.swift */,
+				023051B5220299750066FE1D /* OverlayViewController.swift */,
+				023051B722029CD90066FE1D /* ModelController.swift */,
 				0249E8CA1FECA486007B09D8 /* AppDelegate.swift */,
 				02A95E9C2001EA6500FB6FB2 /* Human.swift */,
 				02A95E9A2001E0E500FB6FB2 /* Constants.swift */,
@@ -190,9 +199,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				02A95E9D2001EA6500FB6FB2 /* Human.swift in Sources */,
+				023051B822029CD90066FE1D /* ModelController.swift in Sources */,
 				0249E8CB1FECA486007B09D8 /* AppDelegate.swift in Sources */,
+				023051B6220299750066FE1D /* OverlayViewController.swift in Sources */,
+				023051BE2202A1470066FE1D /* ViewController.swift in Sources */,
+				023051BA22029DDB0066FE1D /* PenViewController.swift in Sources */,
 				02A95E9B2001E0E500FB6FB2 /* Constants.swift in Sources */,
-				023051AE220278E20066FE1D /* PageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

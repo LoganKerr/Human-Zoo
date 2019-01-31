@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0I6-S4-YXF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PGw-WO-lvm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,43 +10,114 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="pU7-VR-2gi">
+        <!--Navigation Controller-->
+        <scene sceneID="1Ea-dl-vCt">
             <objects>
-                <viewController storyboardIdentifier="UfoHangar" id="NNP-3I-DWi" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tao-Cu-TUo">
+                <navigationController id="PGw-WO-lvm" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3M7-Dc-ebW">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ssZ-AE-jHr" kind="relationship" relationship="rootViewController" id="SCc-Wg-DYy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fX2-Vf-5Sn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1086" y="-532"/>
+        </scene>
+        <!--Overlay-->
+        <scene sceneID="0BX-3I-uwd">
+            <objects>
+                <viewController storyboardIdentifier="Overlay" title="Overlay" id="ssZ-AE-jHr" customClass="OverlayViewController" customModule="Human_Zoo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Xd-86-If9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.55236958140000003" green="0.87728029819999997" blue="0.39482215440000001" alpha="0.44967358730000001" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="W5C-yV-p5C"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGg-5v-Wuf">
+                                <rect key="frame" x="274" y="20" width="85" height="30"/>
+                                <color key="backgroundColor" red="0.77018349119999996" green="1" blue="0.53568593289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <state key="normal" title="Get Humans"/>
+                                <connections>
+                                    <segue destination="dTP-RI-FbY" kind="show" identifier="Minigame" id="1aI-dl-Cca"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jGg-5v-Wuf" firstAttribute="top" secondItem="ge5-cE-Gpz" secondAttribute="top" id="Fw8-n2-Tkr"/>
+                            <constraint firstItem="ge5-cE-Gpz" firstAttribute="trailing" secondItem="jGg-5v-Wuf" secondAttribute="trailing" constant="16" id="kBX-cI-Ruy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ge5-cE-Gpz"/>
                     </view>
+                    <navigationItem key="navigationItem" id="keW-bF-I0H"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="addHumanButton" destination="jGg-5v-Wuf" id="0hm-DJ-m1b"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sdp-Ca-qnG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M2W-Qv-svI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="198" y="-406"/>
+            <point key="canvasLocation" x="-326" y="-532"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="V4d-8h-3JH">
+        <scene sceneID="vNv-yZ-Nnr">
             <objects>
-                <viewController storyboardIdentifier="RootView" id="XCE-kv-1kx" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1Jq-L1-lig">
+                <viewController storyboardIdentifier="Minigame" id="dTP-RI-FbY" customClass="ViewController" customModule="Human_Zoo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zfW-6l-WZN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1f-Ij-iWw">
+                                <rect key="frame" x="153" y="318" width="69" height="30"/>
+                                <state key="normal" title="CLICK ME"/>
+                                <connections>
+                                    <action selector="giveRandomHuman:" destination="dTP-RI-FbY" eventType="touchUpInside" id="ATJ-bZ-IqR"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.37885714120000002" green="0.8660250451" blue="0.94530325010000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="CLS-n8-cvp"/>
+                        <constraints>
+                            <constraint firstItem="i1f-Ij-iWw" firstAttribute="top" secondItem="Fz7-Yb-Jas" secondAttribute="top" constant="298" id="PXC-h8-ay8"/>
+                            <constraint firstItem="Fz7-Yb-Jas" firstAttribute="trailing" secondItem="i1f-Ij-iWw" secondAttribute="trailing" constant="153" id="afk-Df-Nzw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Fz7-Yb-Jas"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="adz-Hg-Vpy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uva-Us-tbR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1082" y="-406"/>
+            <point key="canvasLocation" x="390" y="-532"/>
         </scene>
-        <!--Page View Controller-->
-        <scene sceneID="hLw-87-QIv">
+        <!--Pen View Controller-->
+        <scene sceneID="EzC-aj-5VK">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="0I6-S4-YXF" customClass="PageViewController" customModule="Human_Zoo" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mby-bB-tzv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="PenViewController" id="uja-RV-2Bw" customClass="PenViewController" customModule="Human_Zoo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5qZ-zT-1i9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Human Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QoG-hh-oab">
+                                <rect key="frame" x="135" y="323" width="105" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.77018349119154939" green="1" blue="0.53568593290550937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="GbG-03-d8h" firstAttribute="trailing" secondItem="QoG-hh-oab" secondAttribute="trailing" constant="135" id="Cdx-yu-c40"/>
+                            <constraint firstItem="QoG-hh-oab" firstAttribute="top" secondItem="GbG-03-d8h" secondAttribute="top" constant="303" id="ofh-y3-6xQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GbG-03-d8h"/>
+                    </view>
+                    <connections>
+                        <outlet property="humanName" destination="QoG-hh-oab" id="Vxi-Op-k0S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ygb-qJ-dVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-799" y="-406"/>
+            <point key="canvasLocation" x="-327" y="152"/>
         </scene>
     </scenes>
 </document>
